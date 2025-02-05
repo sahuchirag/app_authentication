@@ -127,7 +127,7 @@ def refresh_token(token_data: TokenData):
     new_token = create_access_token(email)
     return {"new_access_token": new_token}
 
-
+# Check DB values
 @app.get("/debug/db", tags=["debug"], summary="View Database Contents")
 def debug_view_db(admin_key: str = None):
     """
@@ -139,7 +139,7 @@ def debug_view_db(admin_key: str = None):
     return dummy_db
 
 
-# **6. BACKGROUND CLEANUP PROCESS**
+# BACKGROUND CLEANUP PROCESS**
 def cleanup_expired_tokens():
     while True:
         time.sleep(60)  # Run cleanup every 60 seconds
